@@ -1,0 +1,18 @@
+version: '2.4'
+
+services:
+  formflow-admin:
+    image: fucksky-docker.pkg.coding.net/yuanmai/docker/golang-echo-starter:24.0
+    container_name: golang-echo-starter
+    hostname: golang-echo-starter
+    mem_limit: 500m
+    cpu_count: 1
+    cpus: 0.3
+    restart: always
+    ports:
+      - 13000:3000
+    expose:
+      - 3000
+    volumes:
+      - /data/logs/golang-echo-starter:/app/logs
+      - ./env.toml:/app/env.toml

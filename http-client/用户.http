@@ -1,0 +1,7 @@
+### 我的信息
+GET {{host}}/user/info
+Authorization: {{token}}
+
+### 我的菜单
+GET {{host}}/user/menus
+Authorization: {{token}}

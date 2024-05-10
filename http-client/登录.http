@@ -1,0 +1,26 @@
+
+### 验证码
+
+GET {{host}}/captcha
+Content-Type: application/json
+
+> {%
+    client.log("验证码获取成功 保存key")
+    client.global.set("captcha-key",response.body.data.key)
+%}
+
+### 登录
+POST {{host}}/login
+Content-Type: application/json
+
+{
+
+  "userName" : "tenant",
+  "password": "888888",
+  "key": "{{captcha-key}}",
+  "valiCode": "2434"
+}
+> {%
+    client.log("登录成功 保存token")
+    client.global.set("token",response.body.data.token)
+%}
