@@ -1,6 +1,6 @@
 module golang-echo-starter
 
-go 1.22
+go 1.27.3
 
 require (
 	github.com/buzzxu/yuanmai-cloud-sdk-go v0.0.5
