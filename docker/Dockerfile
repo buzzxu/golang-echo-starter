@@ -1,5 +1,9 @@
 FROM buzzxu/docker-ci:golang as build
 
+# Use the current Go toolchain while retaining the custom build image tools.
+COPY --from=golang:1.27.3-bookworm /usr/local/go /usr/local/go
+ENV PATH="/usr/local/go/bin:${PATH}"
+
 WORKDIR $GOPATH/src/golang-echo-starter
 ADD . $GOPATH/src/golang-echo-starter
 
